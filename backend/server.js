@@ -41,10 +41,10 @@ app.get("/api/alunos", (req, res, next) => {
 app.post("/api/alunos", (req, res, next) => {
     var errors = []
     if (!req.body.notaUm) {
-        errors.push("preço não especificado");
+        errors.push("nota um não especificada");
     }
     if (!req.body.notaDois) {
-        errors.push("preço não especificado");
+        errors.push("nota dois não especificada");
     }
     if (errors.length) {
         res.status(400).json({ "error": errors.join(",") });
