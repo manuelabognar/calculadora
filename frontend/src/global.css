@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url("./assets/background.jpg");
+  background-size: contain;
+  background-attachment: fixed;
+
+  font: 400 14px Roboto, sans-serif;
+  -webkit-flow-smoothing: antialiased;
+}
+
+input, button {
+  font: 400 18px Roboto, sans-serif;
+}
+
+button {
+  cursor: pointer;
+}
+
+form input {
+  width:100%;
+  height: 60px;
+  color: #333333;
+  border: 1px solid #dcdce6;
+  border-radius: 8px;
+  padding: 0 24px;
+}
+
+.button {
+  width: 100%;
+  height: 60px;
+  background: #4fc4c4;
+  border: 0;
+  border-radius:  8px;
+  color: #fff;
+  font-weight: 700;
+  margin: 16px 0px;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 60px;
+  transition: filter 0.2s;
+}
+
+.button:hover {
+  filter: brightness(90%);
+}
+
+.container {
+  border: 30px 30px;
+  width: 100%;
+  max-width: 1120px;
+  height: 100vh;
+  margin: 0 auto;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.container .content {
+  width: 100%;
+  padding: 30px 96px;
+  background: rgba(240,240,245, 0.8);
+  box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container .content section {
+  width: 100%;
+}
+
+.container .content section h1 {
+  margin: 64px 0 32px;
+  font-size: 32px;
+  color: #5e5e5e;
+}
+
+.container .content section p {
+  font-size: 18px;
+  color: #737380;
+  line-height: 32px;
+}
+
+.container .content form {
+  width: 100%;
+}
+
+.container .content form label {
+  padding: 0px 10px;
+  color: #5e5e5e;
+  font-size: 14px;
+}
+
+.container .content form input {
+  margin-top: 8px;
+}
+
+.container .content table {
+  width: 100%;
+  margin: 40px 0px;
+}
+
+@media screen and (max-width: 600px) {
+
+  .container .content {
+    width: 100%;
+    padding: 10px 20px;
+    background: rgba(240,240,245, 0.8);
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  
+    justify-content: space-between;
+    align-items: center;
+  }
+
+}

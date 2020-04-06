@@ -7,8 +7,8 @@ class Formulario extends Component {
 
     this.stateInicial = {
       nome : '',
-      notaUm : 1,
-      notaDois : 0.1
+      notaUm : 5,
+      notaDois : 7
     }
 
     this.state = this.stateInicial;
@@ -47,7 +47,8 @@ class Formulario extends Component {
 <div className="row">
         
 
-            <div class="nomeForm">
+            <div className="nomeForm">
+              <label htmlFor="nome">Nome</label>
               <input 
                 id ="nome"
                 type = "text"
@@ -56,32 +57,35 @@ class Formulario extends Component {
                 value = { nome } 
                 onChange = { this.escutadorDeInput } 
               />
-              <label htmlFor="nome">Nome</label>
             </div>
 
 
-            <div class="notaForm">
+            <div className="notaForm">
+              <label htmlFor="notaUm">Nota 1</label>
               <input 
                 id ="notaUm"
                 type = "number"
+                step= "0.1"
+                min="0" max="10"
                 name = "notaUm" 
                 className="validate" 
                 value = { notaUm } 
                 onChange = { (this.escutadorDeInput) }
               />
-              <label htmlFor="notaUm">Nota 1</label>
             </div>
 
-            <div class="notaForm">
+            <div className="notaForm">
+              <label htmlFor="notaDois">Nota 2</label>
               <input 
                 id ="notaDois"
                 type = "number"
+                step= "0.1"
+                min="0" max="10"
                 name = "notaDois" 
                 className="validate" 
                 value = { notaDois } 
                 onChange = { this.escutadorDeInput }
               />
-              <label htmlFor="notaDois">Nota 2</label>
             </div>
             </div>
 
