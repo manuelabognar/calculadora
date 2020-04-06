@@ -3,8 +3,7 @@ import Tabela from '../../components/tabela/Tabela.js';
 import Formulario from '../../components/formulario/Formulario.js';
 import ApiService from '../../services/Api.js';
 
-
-import background from '../../assets/background.jpg';
+import './styles.css';
 
 export default class  Main extends Component {
 

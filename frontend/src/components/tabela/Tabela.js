@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { FiTrash2 } from 'react-icons/fi';
 
 function calculaNotaTres(p1,p2) {
   // P1 * 0.25 + P2 * 0.25 + P3 * 0.5 >= 6.2
@@ -11,15 +12,17 @@ function calculaNotaTres(p1,p2) {
   return ( p3 );
 }
 
+
+
 const TableHead = () => {
   return (
   <thead>
     <tr>
-      <th>Alunos</th>
-      <th>Nota 1</th>
-      <th>Nota 2</th>
-      <th>Nota 3 <br/> (mínima)</th>
-      <th>Remover</th>
+      <th scope="col">Alunos</th>
+      <th scope="col">Nota 1</th>
+      <th scope="col">Nota 2</th>
+      <th scope="col">Nota 3<br/>(mínima)</th>
+      <th scope="col">Remover</th>
     </tr>
   </thead>
   );
@@ -27,18 +30,37 @@ const TableHead = () => {
 
 const TableBody = props => {
   const linhas = props.alunos.map((linha) => {
-    return (
-      <tr key={linha.id}>
+
+    const notaTres = calculaNotaTres(linha.notaUm, linha.notaDois);
+    const NotaTresTd = () => {
+      if (notaTres > 10) {
+        return ( 
+          <td className="reprovado" data-label="Prova 3 ">{notaTres}</td>
+        );
+      } else {
+        return ( 
+          <td  data-label="Prova 3 ">{notaTres}</td>
+        );
+      }
+    }
+
+    return (  
+      <tr key={linha.id} id="alunoTr">
         <td> {linha.nome} </td>
-        <td> {linha.notaUm} </td>
-        <td> {linha.notaDois} </td>
-        <td> {calculaNotaTres(linha.notaUm, linha.notaDois)} </td>
-        <td><button onClick = { () => { props.removeAluno(linha.id) } } className="waves-effect waves-light btn">Remover</button></td>
+        <td data-label="Prova 1 "> {linha.notaUm} </td>
+        <td data-label="Prova 2 "> {linha.notaDois} </td>
+        <NotaTresTd />
+        <td data-label="Remover ">
+          <FiTrash2 size={20}  
+            onClick = { () => { props.removeAluno(linha.id) } }
+          />
+        </td>
       </tr>
     );
   });
 
   return (
+    
     <tbody>
       { linhas }
     </tbody>
@@ -52,7 +74,7 @@ class Tabela extends Component {
     const { alunos, removeAluno } = this.props;
 
     return(
-      <table className="paleBlueRows">
+      <table className="alunos">
         <TableHead />
         <TableBody alunos = { alunos } removeAluno = { removeAluno } />
       </table>
