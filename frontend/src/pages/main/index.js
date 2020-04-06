@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Tabela from '../../components/tabela/Tabela.js';
 import Formulario from '../../components/formulario/Formulario.js';
 import ApiService from '../../services/Api.js';
+import PopUp from '../../components/popUp/PopUp.js';
 
 import './styles.css';
 
@@ -27,8 +28,10 @@ export default class  Main extends Component {
               .then(res => {
                  if (res.message === 'deleted') {
                    this.setState({ alunos: [...alunosAtualizado] });
+                   PopUp.exibeMensagem("success", "Item removido com sucesso");
                  }
               })
+              .catch(err => PopUp.exibeMensagem("error", "Erro na API ao tentar remover item"))
   }
 
 
@@ -37,8 +40,10 @@ export default class  Main extends Component {
               .then(res => {
                 if (res.message === 'success') {
                   this.setState({ alunos : [...this.state.alunos, res.data] });
+                  PopUp.exibeMensagem("success", "Item adicionado com sucesso");
                 }
               })
+              .catch(err => PopUp.exibeMensagem('error', "Erro na comunicação com a API ao tentar criar o item"));
     }
   
 
@@ -50,6 +55,7 @@ export default class  Main extends Component {
                   this.setState({ alunos: [...this.state.alunos, ...res.data] })
                 }
               })
+              .catch(err => PopUp.exibeMensagem('error', "Erro na comunicação com a API ao tentar listar"))
             }
 
 
