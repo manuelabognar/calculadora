@@ -22,10 +22,14 @@ let db = new sqlite3.Database(DBSOURCE, (err) => {
             }else{
                 // Table just created, creating some rows
                 var insert = 'INSERT INTO alunos (nome, notaUm, notaDois) VALUES (?,?,?)'
-                db.run(insert, ["Manu",10,10])
-                db.run(insert, ["Patrick",8,7])
-                db.run(insert, ["João",5,5])
-                db.run(insert, ["Maria",9,9])
+                db.run(insert, ["Marie Skłodowska Curie",10,10])
+                db.run(insert, ["Zaphod Beeblebrox",7,6])
+                db.run(insert, ["João da Silva Sauro",1,1])
+                db.run(insert, ["Mark Elliot Zuckerberg",9.9,10])
+                db.run(insert, ["Internet Explorer",0,0])
+                db.run(insert, ["Agente Smith",2,1])
+                db.run(insert, ["Zé das couves",5,5])
+                db.run(insert, ["Alan Mathison Turing",10,10])
             }
         });  
     }
